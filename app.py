@@ -1,6 +1,5 @@
 import constants
 import random
-import sys
 
 
 # Function for creating and returning player lists based on
@@ -65,6 +64,7 @@ def display_teams():
     print("3. Warriors")
     print("\n")
 
+
 def display_team(team_name, num_players, players_list):
     print("\n")
     print("Team: {} stats.".format(team_name))
@@ -75,6 +75,7 @@ def display_team(team_name, num_players, players_list):
     print(players_list)
     print("\n")
 
+
 # Returns a list of player names given a players list
 def get_player_names(players_list):
     player_names = []
@@ -83,6 +84,7 @@ def get_player_names(players_list):
             if key == "name":
                 player_names.append(value)
     return player_names
+
 
 if __name__ == "__main__":
     exp, inexp = create_player_lists()
