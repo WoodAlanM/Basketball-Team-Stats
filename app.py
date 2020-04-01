@@ -2,15 +2,32 @@ import constants
 import random
 
 
-# Function for creating and returning player lists based on
-# experience
-def create_player_lists():
-    experienced_players = []
-    inexperienced_players = []
-    for player in constants.PLAYERS:
+# Function for cleaning data from the original data set
+def clean_data():
+    new_players_list = constants.PLAYERS
+    for player in new_players_list:
         for key, value in player.items():
             if key == "experience":
                 if value == "NO":
+                    player[key] = False
+                else:
+                    player[key] = True
+            if key == "height":
+                height_list = value.split(" ")
+                height = int(height_list[0])
+                player[key] = height
+    return new_players_list
+
+
+# Function for creating and returning player lists based on
+# experience
+def create_player_lists(players):
+    experienced_players = []
+    inexperienced_players = []
+    for player in players:
+        for key, value in player.items():
+            if key == "experience":
+                if value == False:
                     inexperienced_players.append(player)
                 else:
                     experienced_players.append(player)
@@ -87,7 +104,7 @@ def get_player_names(players_list):
 
 
 if __name__ == "__main__":
-    exp, inexp = create_player_lists()
+    exp, inexp = create_player_lists(clean_data())
     panthers_players, bandits_players, warriors_players = populate_teams(exp, inexp)
     print("Basketball Teams Stats Tool")
     print("---------------------------")
