@@ -24,6 +24,8 @@ def populate_teams(exp_players, inexp_players):
     team2_players = []
     team3_players = []
     still_have_players = True
+    # This loop takes players from the experienced list and the inexperienced list
+    # and adds them randomly to each team
     while still_have_players:
         # Add players to the team1
         exp_index = random.randint(0, len(exp_players) - 1)
@@ -55,6 +57,7 @@ def populate_teams(exp_players, inexp_players):
 
     return team1_players, team2_players, team3_players
 
+
 def display_teams():
     print("\n")
     print("1. Panthers")
@@ -72,6 +75,7 @@ def display_team(team_name, num_players, players_list):
     print(players_list)
     print("\n")
 
+# Returns a list of player names given a players list
 def get_player_names(players_list):
     player_names = []
     for val in players_list:
@@ -107,6 +111,7 @@ if __name__ == "__main__":
             continue
         elif selection == 1:
             in_teams = True
+            # Loop for choosing between teams
             while in_teams:
                 display_teams()
                 try:
@@ -124,6 +129,7 @@ if __name__ == "__main__":
                 elif selection == 3:
                     display_team("Warriors", len(warriors_players), get_player_names(warriors_players))
                 not_again = True
+                # Loop for choosing between teams again or quitting
                 while not_again:
                     would_continue = input("Would you like to continue? (y)es or (n)o?")
                     if would_continue == "Y" or would_continue == "y":
