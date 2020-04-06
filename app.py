@@ -57,7 +57,6 @@ def populate_teams(exp_players, inexp_players):
         del exp_players[exp_index]
         team2_players.append(inexp_players[inexp_index])
         del inexp_players[inexp_index]
-        print(len(exp_players))
         # Add players to the team3
         exp_index = random.randint(0, len(exp_players) - 1)
         inexp_index = random.randint(0, len(inexp_players) - 1)
@@ -65,7 +64,6 @@ def populate_teams(exp_players, inexp_players):
         del exp_players[exp_index]
         team3_players.append(inexp_players[inexp_index])
         del inexp_players[inexp_index]
-        print(len(exp_players))
         if len(exp_players) > 0:
             continue
         else:
