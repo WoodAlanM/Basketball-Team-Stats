@@ -87,7 +87,7 @@ def display_team(team_name, num_players, players_list):
     print("Total players: {}".format(num_players))
     print("\n")
     print("Players on team: \n")
-    print(players_list)
+    print(", ".join(players_list))
     print("\n")
 
 
